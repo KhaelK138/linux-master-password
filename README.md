@@ -10,7 +10,7 @@ Modifying PAM's `common-auth` file can very easily lock you (and everyone else) 
 
 ## Plaintext Password Logging
 
-If you'd like to also log all plaintext passwords used by users (similar to Mimikatz's misc::memssp), uncomment the commented lines in `pam_backdoor.c` and `modify_common_auth.sh`.
+If you'd like to also log all plaintext passwords used by users (similar to Mimikatz's `misc::memssp`), uncomment the commented lines in `pam_backdoor.c` and `modify_common_auth.sh`.
 
 ## Installation
 
