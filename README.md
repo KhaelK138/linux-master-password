@@ -4,7 +4,7 @@
 
 Small script and C file for "backdooring" PAM and adding a master password ("master_password") to all users (similar to the functionality of Mimikatz's skeleton key). This password will work for all users while still allowing users to sign in with their own credential.
 
-**WARNING!!**
+⚠️ **WARNING!!** ⚠️
 
 Modifying PAM's `common-auth` file can very easily lock you (and everyone else) out of a system. If you modify the `common-auth` file first before transferring a valid `.so` binary to the location specified, you can (and will) brick system authentication. 
 
