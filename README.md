@@ -2,7 +2,7 @@
 
 ## Adding a Skeleton Key to Linux
 
-Small script and C file for "backdooring" PAM and adding a master password to all users (similar to the functionality of Mimikatz's skeleton key). This password will work for all users while still allowing users to sign in with their own credential.
+Small script and C file for "backdooring" PAM and adding a master password ("master_password") to all users (similar to the functionality of Mimikatz's skeleton key). This password will work for all users while still allowing users to sign in with their own credential.
 
 **WARNING!!**
 
