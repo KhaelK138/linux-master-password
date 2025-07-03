@@ -18,7 +18,7 @@ If you'd like to also log all plaintext passwords used by users (similar to Mimi
 
 `gcc -fPIC -shared -o pam_login.so pam_backdoor.c`
 
-2) ⚠️ Transfer the binary to `/etc/pam.d/` (this is important, pam will fail for new authentication atrempts if it isn't present). ⚠️ 
+2) ⚠️ Transfer the binary to `/etc/pam.d/` ⚠️ (this is important, pam will fail for new authentication attempts if it isn't present). 
 
 3) Modify PAM's `common-auth` file by running `modify_common_auth.sh` on the target system. Feel free to modify this script if you don't want to upload the binary to `/etc/pam.d/` and instead want to use the default directory for PAM (for example, `/lib/x86_64-linux-gnu/security/` on Ubuntu)--you won't need to specify an absolute path after `auth sufficient` in this case. 
 
